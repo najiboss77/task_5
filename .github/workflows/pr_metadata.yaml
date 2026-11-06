@@ -6,7 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          printf 'PR_ACTOR=%s\n' "$GITHUB_ACTOR" >       - name: Générer les métadonnées
+        run: |
           printf 'PR_ACTOR=%s\n' "$GITHUB_ACTOR" > actor.txt
+          printf 'INF806_TEST=artefact_modifie\n' >> actor.txt
       - uses: actions/upload-artifact@v7.0.2
         with:
           name: pr-metadata
